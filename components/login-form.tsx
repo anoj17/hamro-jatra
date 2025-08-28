@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
+
 
 import { Button } from "@/components/ui/button";
 import {
@@ -20,13 +20,9 @@ import { Eye, EyeOff, Mail, Lock, Loader } from "lucide-react";
 import Image from "next/image";
 import logo from "../public/logo/hamro-jatra-logo.png";
 import { FaGoogle } from "react-icons/fa6";
+import { LoginFormData, loginSchema } from "@/lib/form-schema";
 
-const loginSchema = z.object({
-  email: z.string().email("Please enter a valid email address"),
-  password: z.string().min(6, "Password must be at least 6 characters"),
-});
 
-type LoginFormData = z.infer<typeof loginSchema>;
 
 export function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
