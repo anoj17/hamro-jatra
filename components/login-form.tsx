@@ -15,11 +15,12 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
-import { Eye, EyeOff, Mail, Lock, Loader } from "lucide-react";
+import { Eye, EyeOff, Mail, Lock, Loader} from "lucide-react";
 import Image from "next/image";
 import logo from "../public/logo/hamro-jatra-logo.png";
 import { FaGoogle } from "react-icons/fa6";
 import { LoginFormData, loginSchema } from "@/lib/form-schema";
+import Link from "next/link";
 
 export function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -80,7 +81,6 @@ export function LoginForm() {
                 )}
               />
 
-              {/* Password */}
               <FormField
                 control={form.control}
                 name="password"
@@ -131,7 +131,6 @@ export function LoginForm() {
             </form>
           </Form>
 
-          {/* Google Login */}
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
               <span className="w-full border-t border-border" />
@@ -156,7 +155,7 @@ export function LoginForm() {
           <div className="text-center text-sm text-muted-foreground">
             Don&lsquo;t have an account?{" "}
             <button className="text-primary cursor-pointer hover:text-primary/90 font-medium underline underline-offset-4">
-              Sign up
+              <Link href="/register">Register</Link>
             </button>
           </div>
         </div>
