@@ -1,7 +1,9 @@
+import { Navbar } from "@/components/navbar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import "./globals.css";
+import Providers from "@/components/layout/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,11 +16,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const session = await auth();
   return (
     <html
       className="light"
@@ -27,8 +30,10 @@ export default function RootLayout({
       style={{ colorScheme: "light" }}
     >
       <body className={`${inter.className}`} suppressHydrationWarning={true}>
-        <NextTopLoader showSpinner={false} color="#49b94b" />
-        {children}
+        <NextTopLoader showSpinner={false} color="#950606" />
+        <Navbar />
+        {/* <Providers session={session}>{children}</Providers> */}
+        <div>{children}</div>
       </body>
     </html>
   );
