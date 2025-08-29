@@ -3,8 +3,6 @@
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -21,8 +19,7 @@ import Image from "next/image";
 import logo from "../public/logo/hamro-jatra-logo.png";
 import { FaGoogle } from "react-icons/fa6";
 import { LoginFormData, loginSchema } from "@/lib/form-schema";
-
-
+import Link from "next/link";
 
 export function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -52,8 +49,8 @@ export function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-4">
-      <div className="w-full max-w-md border border-gray-300 rounded-md shadow-lg min-w-md">
+    <div className="md:min-h-screen flex md:items-center md:justify-center bg-background md:p-4">
+      <div className="w-full px-3 md:max-w-md border border-gray-300 rounded-md md:shadow-lg md:min-w-md">
         <div className="flex items-center justify-center h-[150px]">
           <Image src={logo} alt="Hamro Jatra Logo" width={150} height={100} />
         </div>
@@ -83,7 +80,6 @@ export function LoginForm() {
                 )}
               />
 
-              {/* Password */}
               <FormField
                 control={form.control}
                 name="password"
@@ -134,7 +130,6 @@ export function LoginForm() {
             </form>
           </Form>
 
-          {/* Google Login */}
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
               <span className="w-full border-t border-border" />
@@ -159,7 +154,7 @@ export function LoginForm() {
           <div className="text-center text-sm text-muted-foreground">
             Don&lsquo;t have an account?{" "}
             <button className="text-primary cursor-pointer hover:text-primary/90 font-medium underline underline-offset-4">
-              Sign up
+              <Link href="/register">Register</Link>
             </button>
           </div>
         </div>
