@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -20,13 +19,7 @@ import { Eye, EyeOff, Mail, Lock, Loader } from "lucide-react";
 import Image from "next/image";
 import logo from "../public/logo/hamro-jatra-logo.png";
 import { FaGoogle } from "react-icons/fa6";
-
-const loginSchema = z.object({
-  email: z.string().email("Please enter a valid email address"),
-  password: z.string().min(6, "Password must be at least 6 characters"),
-});
-
-type LoginFormData = z.infer<typeof loginSchema>;
+import { LoginFormData, loginSchema } from "@/lib/form-schema";
 
 export function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -56,8 +49,8 @@ export function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-4">
-      <div className="w-full max-w-md border border-gray-300 rounded-md shadow-lg min-w-md">
+    <div className="md:min-h-screen flex md:items-center md:justify-center bg-background md:p-4">
+      <div className="w-full px-3 md:max-w-md border border-gray-300 rounded-md md:shadow-lg md:min-w-md">
         <div className="flex items-center justify-center h-[150px]">
           <Image src={logo} alt="Hamro Jatra Logo" width={150} height={100} />
         </div>
